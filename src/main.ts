@@ -13,6 +13,7 @@ import * as htmlPlugin from "prettier/plugins/html";
 import * as estreePlugin from "prettier/plugins/estree";
 import * as typescriptPlugin from "prettier/plugins/typescript";
 import * as babelPlugin from "prettier/plugins/babel";
+import SqlPlugin from "prettier-plugin-sql";
 
 import {
 	cursorOffsetToEditorPosition,
@@ -135,6 +136,7 @@ export default class PrettierPlugin extends Plugin {
 					estreePlugin,
 					typescriptPlugin,
 					babelPlugin,
+					SqlPlugin,
 				],
 				...this.prettierConfigLoader.getOptions(),
 			});
