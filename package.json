@@ -1,41 +1,49 @@
 {
-	"name": "obsidian-format-with-prettier",
-	"version": "0.2.1",
-	"description": "Format files in your Obsidian vault using Prettier.",
-	"main": "main.js",
-	"scripts": {
-		"prepare": "is-ci || husky install",
-		"dev": "node esbuild.config.mjs",
-		"lint": "eslint .",
-		"format": "prettier --write .",
-		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
-		"changelog": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s",
-		"version": "node version-bump.mjs && npm run changelog && git add ."
-	},
-	"keywords": [
-		"Obsidian plugin",
-		"Prettier"
-	],
-	"author": "Alex Gavrusev <alex@gavrusev.dev>",
-	"license": "MIT",
-	"dependencies": {
-		"obsidian": "1.4.11",
-		"prettier": "3.1.1",
-		"prettier-plugin-sql": "^0.18.0",
-		"tslib": "2.6.2"
-	},
-	"devDependencies": {
-		"@commitlint/cli": "18.4.3",
-		"@commitlint/config-conventional": "18.4.3",
-		"@types/node": "^16.11.6",
-		"@typescript-eslint/eslint-plugin": "6.17.0",
-		"@typescript-eslint/parser": "6.17.0",
-		"builtin-modules": "3.3.0",
-		"conventional-changelog-cli": "4.1.0",
-		"esbuild": "0.19.11",
-		"eslint": "8.56.0",
-		"husky": "^8.0.0",
-		"is-ci": "3.0.1",
-		"typescript": "5.3.3"
-	}
+  "name": "obsidian-format-with-prettier",
+  "version": "0.10.1",
+  "description": "Format files in your Obsidian vault using Prettier.",
+  "main": "main.js",
+  "scripts": {
+    "prepare": "node .husky/install.mjs",
+    "dev": "node esbuild.config.mjs",
+    "lint": "eslint .",
+    "test": "vitest",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+    "changelog": "conventional-changelog --config .changelogrc.mjs -i CHANGELOG.md -s",
+    "version": "node version-bump.mjs && npm run changelog && git add ."
+  },
+  "keywords": [
+    "Obsidian plugin",
+    "Prettier"
+  ],
+  "author": "Alex Gavrusev <alex@gavrusev.dev>",
+  "license": "MIT",
+  "dependencies": {
+    "obsidian": "1.7.2",
+    "prettier": "3.3.3",
+    "prettier-plugin-sql": "^0.18.0",
+    "tslib": "2.8.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "19.7.1",
+    "@commitlint/config-conventional": "19.7.1",
+    "@eslint/js": "9.21.0",
+    "@types/common-tags": "1.8.4",
+    "@types/node": "^22.4.0",
+    "@typescript-eslint/eslint-plugin": "8.26.0",
+    "@typescript-eslint/parser": "8.26.0",
+    "builtin-modules": "5.0.0",
+    "common-tags": "1.8.2",
+    "conventional-changelog-cli": "5.0.0",
+    "conventional-changelog-conventionalcommits": "8.0.0",
+    "esbuild": "0.25.0",
+    "eslint": "9.21.0",
+    "husky": "^9.0.11",
+    "lint-staged": "15.4.3",
+    "typescript": "5.8.2",
+    "typescript-eslint": "8.26.0",
+    "vitest": "3.0.8"
+  }
 }
